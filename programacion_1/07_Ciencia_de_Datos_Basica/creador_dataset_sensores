@@ -1,0 +1,44 @@
+sensor_temp= []
+sensor_humedad=[]
+sensor_co2=[]
+
+dataset_entrenamiento=[]
+
+print("lector sensor temperatura")
+dato=0
+while dato !=-1:
+    dato=float(input("dato:"))
+    if(dato !=-1):
+        sensor_temp.append(dato)
+print("lector sensor humedad")
+dato=0
+while dato !=-1:
+    dato=float(input("dato:"))
+    if(dato !=-1):
+        sensor_humedad.append(dato)
+print("lector sensor co2")
+dato=0
+while dato !=-1:
+    dato=float(input("dato:"))
+    if(dato !=-1):
+        sensor_co2.append(dato)
+
+dataset_entrenamiento.append(sensor_temp)
+dataset_entrenamiento.append(sensor_humedad)
+dataset_entrenamiento.append(sensor_co2)
+
+print("dataset completo")
+print(dataset_entrenamiento)
+print("lectura temperatura:", dataset_entrenamiento[0])
+print("lectura humedad:", dataset_entrenamiento[1])
+print("lectura co2:", dataset_entrenamiento[2])
+
+prom_temp =sum(sensor_temp) / len(sensor_temp)
+prom_humedad =sum(sensor_humedad) / len(sensor_humedad)
+prom_co2 =sum(sensor_co2) / len(sensor_co2)
+print("Promedio temperatura", prom_temp)
+print("Promedio humedad", prom_humedad)
+print("Promedio co2", prom_co2)
+
+
+

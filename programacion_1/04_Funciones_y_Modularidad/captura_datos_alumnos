@@ -1,0 +1,24 @@
+
+
+alumnos=[]
+def insertar_alumno (nombre, edad, carrera):
+    alumno = {
+        "nombre": nombre,
+        "edad": edad,
+        "carrera": carrera
+
+    }
+    alumnos.append(alumno)
+
+opcion="si"
+while opcion == "si":
+    nombre=input("nombre: ")
+    edad=int(input("edad: "))
+    carrera=input("carrera: ")
+
+    insertar_alumno(nombre, edad, carrera)
+    opcion=input("deseas agregar otro alumno? (si/no): ")
+
+print("\nlista de alumnos:")
+print(alumnos)
+

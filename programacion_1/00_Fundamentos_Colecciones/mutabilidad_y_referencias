@@ -1,0 +1,8 @@
+# primera llave
+a = [10, 20]
+# b apunta al mismo lugar que a es decir otra llave de la misma casa
+b = a
+# modificamos b
+b.append(30)
+# a tambien cambia, porque a y b apuntan al mismo objetivo
+print(a)

@@ -1,0 +1,55 @@
+# 1. Configuración de Datos
+destinos = [
+    {"nombre": "Puerto Vallarta", "costo_base": 5000},
+    {"nombre": "Cancún", "costo_base": 7000},
+    {"nombre": "Guadalajara", "costo_base": 3000}
+]
+
+# 2. Filtro de Presupuesto
+presupuesto = float(input("¿Cuál es tu presupuesto total para el viaje? "))
+
+print("\nDestinos disponibles dentro de tu presupuesto:")
+opciones = []
+
+for i, destino in enumerate(destinos):
+    if destino["costo_base"] <= presupuesto:
+        print(f"{i}. {destino['nombre']} - ${destino['costo_base']}")
+        opciones.append((i, destino))
+
+if not opciones:
+    print("Presupuesto insuficiente para viajar esta temporada.")
+    exit()
+
+# 3. Selección y Reservación
+eleccion = int(input("\n¿Qué destino deseas reservar? (elige el número): "))
+
+destino_seleccionado = destinos[eleccion]
+nombre_destino = destino_seleccionado["nombre"]
+costo_base = destino_seleccionado["costo_base"]
+
+# 4. Gestión de Equipaje
+def calcular_costo_equipaje(peso):
+    if peso < 10:
+        return 0
+    elif peso <= 20:
+        return 200
+    else:
+        return 500
+
+respuesta = input("¿Deseas agregar equipaje documentado? (sí/no): ").lower()
+
+costo_equipaje = 0
+
+if respuesta == "si":
+    kg = float(input("Ingresa el peso de tu equipaje en kg: "))
+    costo_equipaje = calcular_costo_equipaje(kg)
+
+# Total
+total = costo_base + costo_equipaje
+
+# 5. Desglose Final
+print("\n--- ESTA ES TU COTIZACIÓN ---")
+print(f"Viaje a: {nombre_destino} - ${costo_base}")
+print(f"Equipaje: ${costo_equipaje}")
+print("-----------------------------")
+print(f"TOTAL A PAGAR: ${total}")

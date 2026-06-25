@@ -1,0 +1,68 @@
+# Mi primera Pokedex
+
+# Lista donde se guardan los pokemones
+pokedex = []
+
+# Función para agregar pokemon
+def agregar_pokemon():
+    nombre = input("Ingresa el nombre: ")
+    tipo = input("Ingresa el tipo: ")
+    nivel = int(input("Ingresa el nivel: "))
+
+    pokemon = {
+        "nombre": nombre,
+        "tipo": tipo,
+        "nivel": nivel
+    }
+
+    pokedex.append(pokemon)
+    print("Pokemon agregado\n")
+
+
+# Función para mostrar pokemones
+def ver_pokemones():
+    if pokedex == []:
+        print("No hay pokemones\n")
+    else:
+        print("Lista de pokemones:")
+        for i in range(len(pokedex)):
+            print(i, "-", pokedex[i]["nombre"], "| Nivel:", pokedex[i]["nivel"])
+        print()
+
+
+# Función para eliminar pokemon
+def eliminar_pokemon():
+    ver_pokemones()
+
+    if pokedex == []:
+        return
+
+    indice = int(input("Ingresa el numero del pokemon a eliminar: "))
+
+    if indice >= 0 and indice < len(pokedex):
+        eliminado = pokedex.pop(indice)
+        print("Se elimino a", eliminado["nombre"], "\n")
+    else:
+        print("Numero incorrecto\n")
+
+
+# Menu principal
+while True:
+    print("1. Agregar pokemon")
+    print("2. Ver pokemones")
+    print("3. Eliminar pokemon")
+    print("4. Salir")
+
+    opcion = input("Elige una opcion: ")
+
+    if opcion == "1":
+        agregar_pokemon()
+    elif opcion == "2":
+        ver_pokemones()
+    elif opcion == "3":
+        eliminar_pokemon()
+    elif opcion == "4":
+        print("Adios")
+        break
+    else:
+        print("Opcion no valida\n")
